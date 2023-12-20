@@ -8,10 +8,10 @@ const Nav = () => (
       </li>
 
       <li className="nav__item__link">
-        <NavLink to="/confessions"> Confessions</NavLink>
+        <NavLink to="/confession"> Confessions</NavLink>
       </li>
       <li className="nav__item__link">
-        <NavLink to="/misdemeanours"> Misdemeanours</NavLink>
+        <NavLink to="/misdemeanour"> Misdemeanours</NavLink>
       </li>
     </ul>
   </nav>

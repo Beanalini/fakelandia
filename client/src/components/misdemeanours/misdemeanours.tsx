@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Misdemeanour } from "../../../types/misdemeanours.types";
+import MisdemeanoursTable from "./misdemeanours-table";
 
 const Misdemeanours: React.FC = () => {
   const url = `http://localhost:8080/api/misdemeanours/8`;
@@ -18,7 +19,12 @@ const Misdemeanours: React.FC = () => {
     };
     fetchMisdemeanours();
   }, [url]);
-  return <>Misdemeanour!</>;
+  return (
+    <>
+      Misdemeanour!
+      <MisdemeanoursTable misdemeanours={misdemeanours} />
+    </>
+  );
 };
 
 export default Misdemeanours;

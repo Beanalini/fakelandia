@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import MainLayout from "../layouts/main_layouts";
 import Home from "../home/home";
 import Confession from "../confession/confession";
-import Misdemeanour from "../misdemeanour/misdemeanour";
+import Misdemeanours from "../misdemeanours/misdemeanours";
 import NotFound from "../not_found/not_found";
 
 const Router: React.FC = () => {
@@ -11,7 +11,7 @@ const Router: React.FC = () => {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="/confession" element={<Confession />} />
-        <Route path="/misdemeanour" element={<Misdemeanour />} />
+        <Route path="/misdemeanours" element={<Misdemeanours />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

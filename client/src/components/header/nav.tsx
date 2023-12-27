@@ -17,7 +17,7 @@ const Nav = () => (
 
       <li className="nav__item__link">
         <NavLink
-          to="/misdemeanour"
+          to="/misdemeanours"
           className={({ isActive }) =>
             isActive ? "nav__item__link--active" : "nav-link-inActive"
           }

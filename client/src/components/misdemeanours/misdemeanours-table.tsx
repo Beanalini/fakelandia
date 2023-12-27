@@ -9,21 +9,22 @@ const MisdemeanoursTable: React.FC<misdemeanoursTableProps> = ({
 }) => {
   return (
     <>
-      <table className="misdemeanours-table">
-        <thead>
-          <tr>
-            <th className="table-heading">Citizen ID </th>
-            <th className="table-heading">Date </th>
-            <th className="table-heading">Misdemeanour</th>
-          </tr>
-        </thead>
-        <tbody>
-          {misdemeanours.map((misdemeanour) => (
-            <TableRow misdemeanour={misdemeanour} />
-          ))}
-        </tbody>
-      </table>
-      <p>misdemeanours</p>
+      <div className="misdemeanours-table">
+        <table>
+          <thead>
+            <tr>
+              <th className="table-heading">Citizen ID </th>
+              <th className="table-heading">Date </th>
+              <th className="table-heading">Misdemeanour</th>
+            </tr>
+          </thead>
+          <tbody>
+            {misdemeanours.map((misdemeanour) => (
+              <TableRow misdemeanour={misdemeanour} />
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };

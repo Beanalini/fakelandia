@@ -16,6 +16,7 @@ const MisdemeanoursTable: React.FC<misdemeanoursTableProps> = ({
               <th className="table-heading">Citizen ID </th>
               <th className="table-heading">Date </th>
               <th className="table-heading">Misdemeanour</th>
+              <th className="table-heading">Punishment</th>
             </tr>
           </thead>
           <tbody>

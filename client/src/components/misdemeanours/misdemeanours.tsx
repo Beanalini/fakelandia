@@ -17,6 +17,8 @@ const Misdemeanours: React.FC = () => {
         const response = await fetch(url);
         const data = await response.json();
         setMisdemeanours(data.misdemeanours);
+        setDisplayMisdemeanours(data.misdemeanours);
+
         console.log(data);
       } catch (error) {
         console.error(error);

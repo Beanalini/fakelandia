@@ -3,12 +3,15 @@ import ConfessionSubject from "./confession_subject";
 import { validateConfessionSubject } from "../validate/validateConfessionSubject";
 import ReasonForContact from "./reason_for_contact";
 import { validateReasonForContact } from "../validate/validateReasonForConfession";
+import ConfessionDetails from "./confession_details";
+import { validateConfessionDetails } from "../validate/validateConfessionDetails";
 
 const Confession: React.FC = () => {
   const [confessionSubject, setConfessionSubject] = useState<string>("");
   console.log(confessionSubject);
   const [reasonForContact, setReasonForContact] = useState<string>("");
   console.log(reasonForContact);
+  const [confessionDetails, setConfessionDetails] = useState<string>("");
   return (
     <section className="confession-wrapper">
       <div className="text">
@@ -32,6 +35,11 @@ const Confession: React.FC = () => {
           reasonForContact={reasonForContact}
           onChangeReasonForContact={(value) => setReasonForContact(value)}
           validate={validateReasonForContact}
+        />
+        <ConfessionDetails
+          confessionDetails={confessionDetails}
+          onChangeConfessionDetails={(value) => setConfessionDetails(value)}
+          validate={validateConfessionDetails}
         />
       </form>
     </section>

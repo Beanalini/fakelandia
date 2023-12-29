@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ConfessionSubject from "./confession_subject";
 import { validateConfessionSubject } from "../validate/validateConfessionSubject";
 import ReasonForContact from "./reason_for_contact";
@@ -12,6 +12,31 @@ const Confession: React.FC = () => {
   const [reasonForContact, setReasonForContact] = useState<string>("");
   console.log(reasonForContact);
   const [confessionDetails, setConfessionDetails] = useState<string>("");
+  const [isValid, setIsValid] = useState<boolean>(false);
+  console.log(isValid);
+
+  const validateFormData = (
+    confessionSubject: string,
+    reasonForContact: string,
+    confessionDetails: string
+  ): boolean => {
+    console.log("inside form validation");
+    return confessionSubject.length &&
+      reasonForContact.length &&
+      confessionDetails.length > 20
+      ? true
+      : false;
+  };
+
+  useEffect(() => {
+    const isValid = validateFormData(
+      confessionSubject,
+      reasonForContact,
+      confessionDetails
+    );
+    setIsValid(isValid);
+  }, [confessionSubject, reasonForContact, confessionDetails]);
+
   return (
     <section className="confession-wrapper">
       <div className="text">
@@ -41,6 +66,10 @@ const Confession: React.FC = () => {
           onChangeConfessionDetails={(value) => setConfessionDetails(value)}
           validate={validateConfessionDetails}
         />
+
+        <button type="button" disabled={!isValid}>
+          Submit
+        </button>
       </form>
     </section>
   );

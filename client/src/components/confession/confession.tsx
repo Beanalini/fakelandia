@@ -15,6 +15,7 @@ const Confession: React.FC = () => {
   const [isValid, setIsValid] = useState<boolean>(false);
   console.log(isValid);
 
+  //refactor to module import
   const validateFormData = (
     confessionSubject: string,
     reasonForContact: string,
@@ -27,6 +28,31 @@ const Confession: React.FC = () => {
       ? true
       : false;
   };
+
+  async function handleSubmitConfession(
+    event: React.FormEvent<HTMLFormElement>
+  ) {
+    event.preventDefault();
+    console.log("inside submit handler");
+    try {
+      const response = await fetch("http://localhost:8080/api/confess", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          subject: confessionSubject,
+          details: confessionDetails,
+          reason: reasonForContact,
+        }),
+      });
+
+      const json = await response.json();
+      console.log("--Confession post response--", json);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
     const isValid = validateFormData(
@@ -50,7 +76,7 @@ const Confession: React.FC = () => {
         </p>
       </div>
 
-      <form className="confession-form">
+      <form className="confession-form" onSubmit={handleSubmitConfession}>
         <ConfessionSubject
           confessionSubject={confessionSubject}
           onChangeConfessionSubject={(value) => setConfessionSubject(value)}
@@ -67,7 +93,7 @@ const Confession: React.FC = () => {
           validate={validateConfessionDetails}
         />
 
-        <button type="button" disabled={!isValid}>
+        <button type="submit" disabled={!isValid}>
           Submit
         </button>
       </form>

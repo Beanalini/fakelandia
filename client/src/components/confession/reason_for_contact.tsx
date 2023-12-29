@@ -22,7 +22,7 @@ const ReasonForContact: React.FC<ReasonForContactProps> = ({
           onChange={(e) => onChangeReasonForContact(e.target.value)}
         >
           <option value="blank">Select option</option>
-          <option value="talk">I just want to talk</option>
+          <option value="just-talk">I just want to talk</option>
           <option value="rudeness">Rudeness</option>
           <option value="vegetables">Vegetables</option>
           <option value="lift">Lift</option>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Misdemeanour } from "../../../types/misdemeanours.types";
 import MisdemeanoursTable from "./misdemeanours-table";
 import FilterMisdemeanour from "./filter-misdemeanour";
@@ -12,6 +12,13 @@ const Misdemeanours: React.FC = () => {
   const [userValue, setUserValue] = useState<string>("Show All");
   const [displayMisdemeanours, setDisplayMisdemeanours] =
     useState<Misdemeanour[]>(misdemeanours);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setDisplayMisdemeanours(misdemeanours);
+    setIsLoading(false);
+  }, [misdemeanours]);
 
   const userFilterMisdemeanour = (userMisdemeanour: string) => {
     //filter misdemeanours if not show all
@@ -30,11 +37,16 @@ const Misdemeanours: React.FC = () => {
   };
   return (
     <>
-      <FilterMisdemeanour
-        userValue={userValue}
-        onChangeUserValue={(event) => userFilterMisdemeanour(event)}
-      />
-      <MisdemeanoursTable misdemeanours={displayMisdemeanours} />
+      {isLoading && <p>Loading...</p>}
+      {!isLoading && (
+        <>
+          <FilterMisdemeanour
+            userValue={userValue}
+            onChangeUserValue={(event) => userFilterMisdemeanour(event)}
+          />
+          <MisdemeanoursTable misdemeanours={displayMisdemeanours} />
+        </>
+      )}
     </>
   );
 };

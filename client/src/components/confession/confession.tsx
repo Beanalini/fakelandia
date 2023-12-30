@@ -37,7 +37,6 @@ const Confession: React.FC = () => {
   const updateMisdemeanours = (reasonForContact: string) => {
     //create misdemeanour object
     //need date and ID
-
     const newMisdemeanour: Misdemeanour = {
       citizenId: Math.floor(10 + Math.random() * 37 * Math.random() * 967),
       misdemeanour: reasonForContact as MisdemeanourKind,

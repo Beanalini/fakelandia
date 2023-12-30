@@ -70,10 +70,8 @@ function addAPIRoutes(app: Express) {
 
     if (weaklyValidateConfession(body)) {
       const result = await handleConfession(body);
-      console.log("server------>", result);
       res.status(200).send(JSON.stringify(result));
     } else {
-      console.log("server---------> error");
       res.status(500).send({
         success: false,
         message: "Invalid Confession",

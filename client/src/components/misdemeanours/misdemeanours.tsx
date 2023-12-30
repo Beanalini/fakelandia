@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Misdemeanour } from "../../../types/misdemeanours.types";
 import MisdemeanoursTable from "./misdemeanours-table";
 import FilterMisdemeanour from "./filter-misdemeanour";
@@ -6,25 +6,30 @@ import FilterMisdemeanour from "./filter-misdemeanour";
 const Misdemeanours: React.FC = () => {
   const url = `http://localhost:8080/api/misdemeanours/8`;
   const [misdemeanours, setMisdemeanours] = useState<Misdemeanour[]>([]);
+
   const [userValue, setUserValue] = useState<string>("Show All");
   const [displayMisdemeanours, setDisplayMisdemeanours] = useState<
     Misdemeanour[]
   >([]);
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
-    const fetchMisdemeanours = async () => {
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        setMisdemeanours(data.misdemeanours);
-        setDisplayMisdemeanours(data.misdemeanours);
+    if (isInitialMount.current) {
+      const fetchMisdemeanours = async () => {
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          setMisdemeanours(data.misdemeanours);
+          setDisplayMisdemeanours(data.misdemeanours);
 
-        console.log(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchMisdemeanours();
+          console.log(data);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      fetchMisdemeanours();
+      isInitialMount.current = false;
+    }
   }, []);
 
   const userFilterMisdemeanour = (userMisdemeanour: string) => {

@@ -6,6 +6,9 @@ import { validateReasonForContact } from "../validate/validateReasonForConfessio
 import ConfessionDetails from "./confession_details";
 import { validateConfessionDetails } from "../validate/validateConfessionDetails";
 
+import { Misdemeanour } from "../../../types/misdemeanours.types";
+import { MisdemeanourKind } from "../../../types/misdemeanours.types";
+
 const Confession: React.FC = () => {
   const [confessionSubject, setConfessionSubject] = useState<string>("");
   console.log(confessionSubject);
@@ -13,6 +16,7 @@ const Confession: React.FC = () => {
   console.log(reasonForContact);
   const [confessionDetails, setConfessionDetails] = useState<string>("");
   const [isValid, setIsValid] = useState<boolean>(false);
+  const [postMessage, setPostMessage] = useState<string | undefined>(undefined);
   console.log(isValid);
 
   //refactor to module import
@@ -27,6 +31,18 @@ const Confession: React.FC = () => {
       confessionDetails.length > 20
       ? true
       : false;
+  };
+
+  const updateMisdemeanours = (reasonForContact: string) => {
+    //create misdemeanour object
+    //need date and ID
+
+    const newMisdemeanour: Misdemeanour = {
+      citizenId: Math.floor(10 + Math.random() * 37 * Math.random() * 967),
+      misdemeanour: reasonForContact as MisdemeanourKind,
+      date: new Date().toLocaleDateString(),
+    };
+    console.log(newMisdemeanour);
   };
 
   async function handleSubmitConfession(
@@ -49,6 +65,11 @@ const Confession: React.FC = () => {
 
       const json = await response.json();
       console.log("--Confession post response--", json);
+      if (json.success && json.justTalked === false)
+        updateMisdemeanours(reasonForContact);
+      setPostMessage(json.message);
+
+      if (response.status === 500) setPostMessage(json.message);
     } catch (error) {
       console.log(error);
     }
@@ -97,6 +118,10 @@ const Confession: React.FC = () => {
           Submit
         </button>
       </form>
+
+      {postMessage !== undefined && (
+        <p className="post-message">{postMessage}</p>
+      )}
     </section>
   );
 };

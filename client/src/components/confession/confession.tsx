@@ -5,11 +5,12 @@ import ReasonForContact from "./reason_for_contact";
 import { validateReasonForContact } from "../validate/validateReasonForConfession";
 import ConfessionDetails from "./confession_details";
 import { validateConfessionDetails } from "../validate/validateConfessionDetails";
-
 import { Misdemeanour } from "../../../types/misdemeanours.types";
 import { MisdemeanourKind } from "../../../types/misdemeanours.types";
+import { useMisdemeanours } from "../hooks/useMisdemeanoursContext";
 
 const Confession: React.FC = () => {
+  const { misdemeanours } = useMisdemeanours();
   const [confessionSubject, setConfessionSubject] = useState<string>("");
   console.log(confessionSubject);
   const [reasonForContact, setReasonForContact] = useState<string>("");
@@ -43,6 +44,7 @@ const Confession: React.FC = () => {
       date: new Date().toLocaleDateString(),
     };
     console.log(newMisdemeanour);
+    misdemeanours.push(newMisdemeanour);
   };
 
   async function handleSubmitConfession(

@@ -2,10 +2,12 @@ import { useState } from "react";
 import { Misdemeanour } from "../../../types/misdemeanours.types";
 import MisdemeanoursTable from "./misdemeanours-table";
 import FilterMisdemeanour from "./filter-misdemeanour";
-import useMisdemeanoursData from "../hooks/useMisdemeanoursData";
+// import useMisdemeanoursData from "../hooks/useMisdemeanoursData";
+import { useMisdemeanours } from "../hooks/useMisdemeanoursContext";
 
 const Misdemeanours: React.FC = () => {
-  const misdemeanours = useMisdemeanoursData();
+  // const misdemeanours = useMisdemeanoursData();
+  const { misdemeanours } = useMisdemeanours();
   console.log(misdemeanours);
   const [userValue, setUserValue] = useState<string>("Show All");
   const [displayMisdemeanours, setDisplayMisdemeanours] =

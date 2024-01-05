@@ -37,16 +37,18 @@ const Misdemeanours: React.FC = () => {
   };
   return (
     <>
-      {isLoading && <p>Loading...</p>}
-      {!isLoading && (
-        <>
-          <FilterMisdemeanour
-            userValue={userValue}
-            onChangeUserValue={(event) => userFilterMisdemeanour(event)}
-          />
-          <MisdemeanoursTable misdemeanours={displayMisdemeanours} />
-        </>
-      )}
+      <section className="misdemeanours-wrapper">
+        {isLoading && <p>Loading...</p>}
+        {!isLoading && (
+          <>
+            <FilterMisdemeanour
+              userValue={userValue}
+              onChangeUserValue={(event) => userFilterMisdemeanour(event)}
+            />
+            <MisdemeanoursTable misdemeanours={displayMisdemeanours} />
+          </>
+        )}
+      </section>
     </>
   );
 };

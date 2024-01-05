@@ -9,7 +9,7 @@ const FilterMisdemeanour: React.FC<FilterMisdemeanourProps> = ({
 }) => {
   return (
     <>
-      <div>
+      <div className="misdemeanour-filter">
         <label htmlFor="filter-misdemeanour">Select Misdemeanour</label>
         <select
           id="filter-misdemeanour"

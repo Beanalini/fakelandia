@@ -40,10 +40,11 @@ const Confession: React.FC = () => {
     const newMisdemeanour: Misdemeanour = {
       citizenId: Math.floor(10 + Math.random() * 37 * Math.random() * 967),
       misdemeanour: reasonForContact as MisdemeanourKind,
+      details: confessionDetails,
       date: new Date().toLocaleDateString(),
     };
     console.log(newMisdemeanour);
-    misdemeanours.push(newMisdemeanour);
+    misdemeanours.unshift(newMisdemeanour);
   };
 
   async function handleSubmitConfession(

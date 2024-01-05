@@ -10,12 +10,13 @@ const MisdemeanoursTable: React.FC<misdemeanoursTableProps> = ({
   return (
     <>
       <div className="misdemeanours-table">
-        <table>
+        <table className="table">
           <thead>
             <tr>
               <th className="table-heading">Citizen ID </th>
               <th className="table-heading">Date </th>
               <th className="table-heading">Misdemeanour</th>
+              <th className="table-heading">Details</th>
               <th className="table-heading">Punishment</th>
             </tr>
           </thead>

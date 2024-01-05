@@ -81,8 +81,20 @@ body {
   padding: 5px 20px;
 }
 
+.table {
+  table-layout: auto;
+  width: 50%;
+}
+
 .table-data {
   padding: 5px 20px;
+  width: 120px;
+  word-wrap: break-word;
+}
+
+.table__data--details {
+  font-size: 0.82rem;
+  color: crimson;
 }
 
 .confession-wrapper {

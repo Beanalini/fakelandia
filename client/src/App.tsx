@@ -7,11 +7,9 @@ import { MisdemeanoursProvider } from "../src/components/hooks/useMisdemeanoursC
 function App() {
   return (
     <>
-      {/* <MisdemeanoursProvider> */}
       <BrowserRouter>
         <Router />
       </BrowserRouter>
-      {/* </MisdemeanoursProvider> */}
     </>
   );
 }

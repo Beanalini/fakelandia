@@ -14,6 +14,9 @@ const TableRow: React.FC<misdemeanourTableProps> = ({ misdemeanour }) => {
           {misdemeanour.misdemeanour}{" "}
           <MisdemeanourEmoji misdemeanour={misdemeanour.misdemeanour} />
         </td>
+        <td className="table__data table__data--details">
+          {misdemeanour.details}
+        </td>
         <td className="table-data">
           <img
             src={`https://picsum.photos/100/100?random=${Math.floor(

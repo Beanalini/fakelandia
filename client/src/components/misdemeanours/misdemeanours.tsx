@@ -9,7 +9,7 @@ const Misdemeanours: React.FC = () => {
   // const misdemeanours = useMisdemeanoursData();
   const { misdemeanours } = useMisdemeanours();
   console.log(misdemeanours);
-  const [userValue, setUserValue] = useState<string>("Show All");
+  const [userValue, setUserValue] = useState<string>("Show all");
   const [displayMisdemeanours, setDisplayMisdemeanours] =
     useState<Misdemeanour[]>(misdemeanours);
 

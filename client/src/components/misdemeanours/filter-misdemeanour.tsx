@@ -15,9 +15,11 @@ const FilterMisdemeanour: React.FC<FilterMisdemeanourProps> = ({
           id="filter-misdemeanour"
           name="filter-misdemeanour"
           value={userValue}
-          onChange={(e) => onChangeUserValue(e.target.value)}
+          onChange={(e) => {
+            onChangeUserValue(e.target.value);
+          }}
         >
-          <option value="Show All">Show All</option>
+          <option value="Show all">Show all</option>
           <option value="rudeness">Rudeness</option>
           <option value="vegetables">Vegetables</option>
           <option value="lift">Lift</option>

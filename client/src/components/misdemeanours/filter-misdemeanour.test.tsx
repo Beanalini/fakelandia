@@ -10,7 +10,7 @@ describe("<FilterMisdemeanour/>", () => {
     render(<FilterMisdemeanour {...props} />);
 
     expect(screen.getByDisplayValue("Show all")).toBeInTheDocument();
-    screen.debug();
+    //screen.debug();
   });
 
   it("tests that the select list value changes on user selection", () => {
@@ -19,7 +19,7 @@ describe("<FilterMisdemeanour/>", () => {
 
     render(<FilterMisdemeanour {...props} />);
 
-    screen.debug();
+    //screen.debug();
     const event = screen.getByDisplayValue("Show all");
     fireEvent.change(event, { target: { value: "rudeness" } });
     expect(mockOnChange).toHaveBeenCalledWith("rudeness");
@@ -31,7 +31,7 @@ describe("<FilterMisdemeanour/>", () => {
 
     render(<FilterMisdemeanour {...props} />);
 
-    screen.debug();
+    //screen.debug();
     const event = screen.getByDisplayValue("Show all");
     fireEvent.change(event, { target: { value: "vegetables" } });
     expect(mockOnChange).toHaveBeenCalledWith("vegetables");

@@ -12,10 +12,11 @@ const ConfessionSubject: React.FC<ConfessionSubjectProps> = ({
 }) => {
   return (
     <>
-      <div>
+      <div className="confessionSubject">
         <label htmlFor="confessionSubject">Subject: </label>
         <input
           id="confessionSubject"
+          data-testid="confessionSubject"
           type="text"
           value={confessionSubject}
           onChange={(e) => onChangeConfessionSubject(e.target.value)}

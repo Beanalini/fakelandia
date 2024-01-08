@@ -44,8 +44,6 @@ describe("Misdemeanours", () => {
     expect(await screen.findByText("united 😈")).toBeInTheDocument();
     expect(await screen.findByText("23/12/23")).toBeInTheDocument();
     expect(await screen.findByText("26/12/23")).toBeInTheDocument();
-
-    screen.debug();
   });
 
   it("tests that the expected components are rendered", async () => {
@@ -56,7 +54,6 @@ describe("Misdemeanours", () => {
     expect(await screen.queryAllByRole("option")).toHaveLength(5);
     //count includes table heading row
     expect(await screen.queryAllByRole("row")).toHaveLength(5);
-    screen.debug();
   });
 
   it("tests misdemeanours are filtered from the list of misdemeanours", async () => {

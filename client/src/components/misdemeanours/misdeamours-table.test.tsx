@@ -9,7 +9,6 @@ describe("MisdemeanoursTable", () => {
   it("contains table Date column heading", () => {
     render(<MisdemeanoursTable misdemeanours={misdemeanours} />);
     expect(screen.getByText("Citizen ID")).toBeInTheDocument();
-    screen.debug;
   });
 
   it("contains table Date column heading", () => {

@@ -10,13 +10,13 @@ const ReasonForContact: React.FC<ReasonForContactProps> = ({
   onChangeReasonForContact,
   validate,
 }) => {
-  console.log(reasonForContact);
   return (
     <>
-      <div>
+      <div className="reasonForContact">
         <label htmlFor="reason-for-contact">Reason for contact:</label>
         <select
           id="reason-for-contact"
+          data-testid="reasonForConfession"
           name="reason-for-contact"
           value={reasonForContact}
           onChange={(e) => onChangeReasonForContact(e.target.value)}

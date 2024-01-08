@@ -12,13 +12,14 @@ const ConfessionDetails: React.FC<ConfessionDetailsProps> = ({
 }) => {
   return (
     <>
-      <div>
+      <div className="confessionDetails">
         <label htmlFor="confessionDetails"></label>
         <textarea
           rows={10}
           cols={50}
-          id="confessionDetails"
+          id="details"
           name="ConfessionDetails"
+          data-testid="confessionDetails"
           placeholder="Enter your confession details here"
           value={confessionDetails}
           onChange={(e) => onChangeConfessionDetails(e.target.value)}

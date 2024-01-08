@@ -7,6 +7,8 @@
 :root {
   --dark-magenta: #990099;
   --forest-green: #009900;
+  /* --aqua: aqua; */
+  --black: black;
 }
 
 body {
@@ -23,7 +25,7 @@ body {
   flex-basis: 1;
   justify-content: space-between;
   margin-right: 50px;
-  background-color: aqua;
+  background-color: var(--aqua);
 }
 
 .nav__item {
@@ -42,6 +44,7 @@ body {
   text-decoration: none;
   align-items: center;
   margin: 1rem;
+  font-size: 20px;
 }
 
 .nav__item__link--active {
@@ -59,7 +62,7 @@ body {
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  background-color: aquamarine;
+  background-color: rgb(23, 25, 24);
 }
 
 .logo {
@@ -68,6 +71,33 @@ body {
   float: left;
   margin-left: 2rem;
   font-size: 1.5rem;
+  color: var(--dark-magenta);
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  align-content: center;
+}
+
+.home__text {
+  font-size: 36px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+  width: 80%;
+  margin-top: 40px;
+}
+
+.confession-stats {
+  font-size: 20px;
+  background-color: var(--black);
+  color: white;
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .misdemeanours-wrapper {
@@ -78,8 +108,10 @@ body {
 
 .misdemeanour-filter {
   padding: 20px;
-  background-color: #009900;
+  background-color: var(--forest-green);
   margin-top: 10px;
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .misdemeanours-table {
@@ -124,18 +156,26 @@ body {
   font-size: 1.35rem;
   width: 60%;
 }
+
+.confessionSubject,
+.reasonForContact,
+.confessionDetails {
+  padding-bottom: 10px;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  font-size: 1.1em;
+  font-weight: bold;
   font-family: inherit;
   background-color: var(--dark-magenta);
   cursor: pointer;
   transition: border-color 0.25s;
+  width: 100%;
 }
 
 button:disabled {
-  opacity: 0.4;
+  opacity: 0.5;
 }

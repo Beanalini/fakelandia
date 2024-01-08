@@ -24,7 +24,7 @@ const Misdemeanours: React.FC = () => {
     //filter misdemeanours if not show all
     console.log(userMisdemeanour);
     setUserValue(userMisdemeanour);
-    if (userMisdemeanour !== "Show All") {
+    if (userMisdemeanour !== "Show all") {
       //filter data by user selection
       const filteredMisdemeanours = misdemeanours.filter(
         (misdemeanour) => misdemeanour.misdemeanour === userMisdemeanour

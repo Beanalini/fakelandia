@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ConfessionSubject from "./confession_subject";
 import { validateConfessionSubject } from "../validate/validateConfessionSubject";
 import ReasonForContact from "./reason_for_contact";
-import { validateReasonForContact } from "../validate/validateReasonForConfession";
+import { validateReasonForContact } from "../validate/validateReasonForContact";
 import ConfessionDetails from "./confession_details";
 import { validateConfessionDetails } from "../validate/validateConfessionDetails";
 import { Misdemeanour } from "../../../types/misdemeanours.types";

@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
-import userEvent from "@testing-library/user-event";
+
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import MainLayout from "../layouts/main_layouts";
+
 import Nav from "./nav";
 import { BrowserRouter } from "react-router-dom";
 
